@@ -28,6 +28,9 @@ export class Category {
   @Column()
   type: TransactionType;
 
+  @Column({ nullable: true })
+  budget: number;
+
   @CreateDateColumn()
   createdAt: Date;
 
