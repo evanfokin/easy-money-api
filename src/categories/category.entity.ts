@@ -6,49 +6,43 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
-} from 'typeorm';
-import { TransactionType } from './types/transaction-type.type';
-import { Transaction } from '../transactions/transaction.entity';
-import { User } from '../users/user.entity';
+} from 'typeorm'
+import { TransactionType } from './types/transaction-type.type'
+import { Transaction } from '../transactions/transaction.entity'
+import { User } from '../users/user.entity'
 
 @Entity()
 export class Category {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column()
-  userId: number;
+  userId: number
 
   @Column()
-  name: string;
+  name: string
 
   @Column()
-  icon: string;
+  icon: string
 
   @Column()
-  type: TransactionType;
+  type: TransactionType
 
   @Column({ nullable: true })
-  budget: number;
+  budget: number
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: Date
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt: Date
 
   @Column({ nullable: true })
-  deletedAt: Date;
+  deletedAt: Date
 
-  @OneToMany(
-    () => Transaction,
-    transaction => transaction.category
-  )
-  transactions: Transaction[];
+  @OneToMany(() => Transaction, transaction => transaction.category)
+  transactions: Transaction[]
 
-  @ManyToOne(
-    () => User,
-    user => user.categories
-  )
-  user: User;
+  @ManyToOne(() => User, user => user.categories)
+  user: User
 }

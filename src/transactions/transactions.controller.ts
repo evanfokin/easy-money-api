@@ -1,9 +1,9 @@
-import { Controller, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { Crud, CrudAuth, CrudController } from '@nestjsx/crud';
-import { User } from '../users/user.entity';
-import { Transaction } from './transaction.entity';
-import { TransactionsService } from './transactions.service';
+import { Controller, UseGuards } from '@nestjs/common'
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
+import { Crud, CrudAuth, CrudController } from '@nestjsx/crud'
+import { User } from '../users/user.entity'
+import { Transaction } from './transaction.entity'
+import { TransactionsService } from './transactions.service'
 
 @UseGuards(JwtAuthGuard)
 @Crud({

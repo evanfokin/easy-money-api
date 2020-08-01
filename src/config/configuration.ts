@@ -8,6 +8,6 @@ export const configuration = () => ({
     password: process.env.POSTGRES_PASSWORD || 'secret',
     database: process.env.POSTGRES_DATABASE || 'easy-money'
   }
-});
+})
 
-export default configuration;
+export default configuration

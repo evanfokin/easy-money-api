@@ -1,42 +1,32 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn
-} from 'typeorm';
-import { Category } from '../categories/category.entity';
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { Category } from '../categories/category.entity'
 
 @Entity()
 export class Transaction {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column()
-  categoryId: string;
+  categoryId: string
 
   @Column()
-  amount: number;
+  amount: number
 
   @Column('text', { default: '' })
-  comment: string;
+  comment: string
 
   @Column()
-  date: Date;
+  date: Date
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: Date
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt: Date
 
   @Column({ nullable: true })
-  deletedAt: Date;
+  deletedAt: Date
 
-  @ManyToOne(
-    () => Category,
-    category => category.transactions
-  )
-  category: Category;
+  @ManyToOne(() => Category, category => category.transactions)
+  category: Category
 }
